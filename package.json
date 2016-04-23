@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "webpack --progress",
-    "start": "webpack-dev-server --watch --progress",
+    "build": "webpack -d --progress --colors",
+    "start": "webpack-dev-server -d --watch --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

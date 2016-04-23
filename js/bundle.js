@@ -57,17 +57,23 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 159);
 	
-	var _App = __webpack_require__(/*! ./components/App */ 185);
+	var _redux = __webpack_require__(/*! redux */ 166);
+	
+	var _TodoReducers = __webpack_require__(/*! ./reducers/TodoReducers */ 185);
+	
+	var _App = __webpack_require__(/*! ./components/App */ 186);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var store = (0, _redux.createStore)(_TodoReducers.todo);
+	
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRedux.Provider,
-	  null,
+	  { store: store },
 	  _react2.default.createElement(_App2.default, null)
-	), document.body);
+	), document.getElementById('root'));
 
 /***/ },
 /* 1 */
@@ -21931,6 +21937,31 @@
 
 /***/ },
 /* 185 */
+/*!*************************************!*\
+  !*** ./js/reducers/TodoReducers.js ***!
+  \*************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var todo = exports.todo = function todo(state, action) {
+	  switch (action.type) {
+	    case 'ADD_TODO':
+	      return {
+	        id: action.id,
+	        tect: action.text
+	      };
+	    default:
+	      return state;
+	  }
+	};
+	exports.default = todo;
+
+/***/ },
+/* 186 */
 /*!******************************!*\
   !*** ./js/components/App.js ***!
   \******************************/

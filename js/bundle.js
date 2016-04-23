@@ -71,7 +71,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	console.log(_AppReducers2.default);
 	var store = (0, _redux.createStore)(_AppReducers2.default);
 	
 	store.dispatch((0, _TodoActions.addTodo)('Hello React!'));
@@ -22044,7 +22043,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _VisibleTodoList = __webpack_require__(/*! ../containers/VisibleTodoList */ 189);
+	var _AddTodo = __webpack_require__(/*! ../containers/AddTodo */ 189);
+	
+	var _AddTodo2 = _interopRequireDefault(_AddTodo);
+	
+	var _VisibleTodoList = __webpack_require__(/*! ../containers/VisibleTodoList */ 190);
 	
 	var _VisibleTodoList2 = _interopRequireDefault(_VisibleTodoList);
 	
@@ -22054,6 +22057,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    null,
+	    _react2.default.createElement(_AddTodo2.default, null),
 	    _react2.default.createElement(_VisibleTodoList2.default, null)
 	  );
 	};
@@ -22062,6 +22066,54 @@
 
 /***/ },
 /* 189 */
+/*!**********************************!*\
+  !*** ./js/containers/AddTodo.js ***!
+  \**********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRedux = __webpack_require__(/*! react-redux */ 159);
+	
+	var _TodoActions = __webpack_require__(/*! ../actions/TodoActions */ 187);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var AddTodo = function AddTodo(_ref) {
+	  var dispatch = _ref.dispatch;
+	
+	  var input = void 0;
+	
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement('input', { ref: function ref(node) {
+	        input = node;
+	      } }),
+	    _react2.default.createElement(
+	      'button',
+	      { onClick: function onClick() {
+	          dispatch((0, _TodoActions.addTodo)(input.value));
+	          input.value = '';
+	        } },
+	      'Add Todo'
+	    )
+	  );
+	};
+	AddTodo = (0, _reactRedux.connect)()(AddTodo);
+	
+	exports.default = AddTodo;
+
+/***/ },
+/* 190 */
 /*!******************************************!*\
   !*** ./js/containers/VisibleTodoList.js ***!
   \******************************************/
@@ -22075,7 +22127,7 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 159);
 	
-	var _TodoList = __webpack_require__(/*! ../components/TodoList */ 190);
+	var _TodoList = __webpack_require__(/*! ../components/TodoList */ 191);
 	
 	var _TodoList2 = _interopRequireDefault(_TodoList);
 	
@@ -22090,7 +22142,7 @@
 	exports.default = VisibleTodoList;
 
 /***/ },
-/* 190 */
+/* 191 */
 /*!***********************************!*\
   !*** ./js/components/TodoList.js ***!
   \***********************************/
@@ -22108,7 +22160,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Todo = __webpack_require__(/*! ./Todo */ 191);
+	var _Todo = __webpack_require__(/*! ./Todo */ 192);
 	
 	var _Todo2 = _interopRequireDefault(_Todo);
 	
@@ -22137,7 +22189,7 @@
 	exports.default = TodoList;
 
 /***/ },
-/* 191 */
+/* 192 */
 /*!*******************************!*\
   !*** ./js/components/Todo.js ***!
   \*******************************/
